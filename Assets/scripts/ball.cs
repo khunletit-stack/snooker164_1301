@@ -19,6 +19,14 @@ public class ball : MonoBehaviour, IPointerClickHandler
 
     [SerializeField]
     private Ballcolor color;
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log(point);
+        Gamemanager.instance.Playerscore += point;
+        Destroy(gameObject);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

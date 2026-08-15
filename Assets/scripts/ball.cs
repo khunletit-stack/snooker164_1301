@@ -33,17 +33,19 @@ public class ball : MonoBehaviour, IPointerClickHandler
         Destroy(gameObject);
     }
 
-    private void Awake()
+    void Awake()
     {
             rb = GetComponent<MeshRenderer>();
     }
     private void Start()
     {
+      
     }
 
     private void Update()
     {
     }
+
 
     public void Setcolorandpoint(Ballcolor col)
     {

@@ -53,7 +53,7 @@ public class ball : MonoBehaviour, IPointerClickHandler
                 break;
             case Ballcolor.Red:
                 point = 1;
-                rb.material.color = Color.Red;
+                rb.material.color = Color.red;
                 break;
             case Ballcolor.Yellow:
                 point = 2;

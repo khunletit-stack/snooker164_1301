@@ -33,6 +33,10 @@ public class ball : MonoBehaviour, IPointerClickHandler
         Destroy(gameObject);
     }
 
+    private void Awake()
+    {
+            rb = GetComponent<MeshRenderer>();
+    }
     private void Start()
     {
     }

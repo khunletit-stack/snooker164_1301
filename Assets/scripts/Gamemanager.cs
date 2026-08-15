@@ -33,6 +33,13 @@ public class Gamemanager : MonoBehaviour
 
     private void Start()
     {
+        SetBall(Ballcolor.Red, 1);
+        SetBall(Ballcolor.Yellow, 2);
+        SetBall(Ballcolor.Green, 3);
+        SetBall(Ballcolor.Brown, 4);
+        SetBall(Ballcolor.Blue, 5);
+        SetBall(Ballcolor.Pink, 6);
+        SetBall(Ballcolor.Black, 7);
     }
 
     private void Update()
@@ -114,5 +121,6 @@ public class Gamemanager : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
 
         cueBall.transform.eulerAngles = Vector3.zero;
+        
     }
 }

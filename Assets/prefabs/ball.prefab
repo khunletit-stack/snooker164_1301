@@ -127,3 +127,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ball
   point: 0
   color: 0
+  rb: {fileID: 0}

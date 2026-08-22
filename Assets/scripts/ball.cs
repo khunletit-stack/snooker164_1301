@@ -37,6 +37,7 @@ public class ball : MonoBehaviour, IPointerClickHandler
     {
             rb = GetComponent<MeshRenderer>();
     }
+
     private void Start()
     {
       

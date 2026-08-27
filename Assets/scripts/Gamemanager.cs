@@ -1,6 +1,6 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class Gamemanager : MonoBehaviour
 {
@@ -31,14 +31,17 @@ public class Gamemanager : MonoBehaviour
     [SerializeField]
     private GameObject cam;
 
+    [SerializeField]
+    private TMP_Text notiText;
+
     public static Gamemanager instance;
 
-    private void Awake()
+     void Awake()
     {
         instance = this;
     }
 
-    private void Start()
+   void Start()
     {
         CameraBehindCueBall();
 
@@ -75,7 +78,7 @@ public class Gamemanager : MonoBehaviour
             xInput = 0f;
 
 
-       if (Keyboard.current.backspaceKey.wasReleasedThisFrame)
+       if (Keyboard.current.backspaceKey.wasPressedThisFrame)
             StopBall();
 
     }
@@ -115,13 +118,9 @@ public class Gamemanager : MonoBehaviour
 
     private void StopBall()
     {
-        if (cueBall == null)
-            return;
-
+      
         Rigidbody rb = cueBall.GetComponent<Rigidbody>();
 
-        if (rb == null)
-            return;
 
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -134,10 +133,23 @@ public class Gamemanager : MonoBehaviour
 
     private void CameraBehindCueBall()
     {
-        Debug.Log("CameraBehindCueBall");
         cam.transform.parent = cueBall.transform;
         cam.transform.position = cueBall.transform.position + new Vector3(0f, 7f, -15f);
         cam.transform.eulerAngles = new Vector3(30f, 0f, 0f);
+
+        //cam.transform.parent = cueBall.transform;
+        //cam.transform.position = cueBall.transform.position + new Vector3(0f, 7f, -15f);
+        //cam.transform.eulerAngles = new Vector3(30f, 0f, 0f);
+    }
+
+    public void ShowScoreText(int n)
+    {
+        playerscore += n;
+        notiText.text = $"Ball Point:{n}\nTotal Score:{playerscore}";
+    }
+    public void ShowString(string s)
+    {
+        notiText.text = s;
     }
 
 }

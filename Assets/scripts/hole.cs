@@ -7,7 +7,16 @@ public class hole : MonoBehaviour
         ball b = other.GetComponent<ball>();
         if (b != null )
         {
-            Gamemanager.instance.Playerscore += b.Point;
+            if (b.Point == 0)
+            {
+                Gamemanager.instance.ShowString($"White ball drop!!!\nYou lose");
+                Time.timeScale = 0f;
+            }   
+            else
+            {
+                Gamemanager.instance.ShowScoreText(b.Point);
+            }
+
             Destroy(b.gameObject);
         }
     }
